@@ -2,7 +2,7 @@
 class personnage{
 
     const MAX_VIE = 100;
-    protected $vie =80;
+    public $vie =80;
     protected $atk = 20;
     protected $nom;
 
