@@ -1,8 +1,10 @@
 <?php
 class personnage{
-    public $vie =80;
-    public $atk = 20;
-    public $nom;
+
+    const MAX_VIE = 100;
+    protected $vie =80;
+    protected $atk = 20;
+    protected $nom;
 
 
     public function __construct($nom)
@@ -11,7 +13,7 @@ class personnage{
     }
     public function regenerer($vie = null){
         if(is_null(($vie))){
-            $this->vie = 100;
+            $this->vie = self::MAX_VIE;
         }else{
             $this->vie += $vie;
         }
