@@ -1,5 +1,5 @@
 <?php
-
+namespace Tutoriel;
 class autoloader{
 
     static function register(){
@@ -7,8 +7,11 @@ class autoloader{
     }
     
 
-static function autoload($class_name){
-    require 'class/'. $class_name.'.php';
+static function autoload($class){
+
+    $class = str_replace('Tutoriel\\','',$class);
+    $class = str_replace('\\','/',$class);
+    require 'class/'. $class.'.php';
 }
 }
 

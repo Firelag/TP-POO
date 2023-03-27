@@ -15,11 +15,11 @@
 <?php
 
 require 'class/autoloader.php';
-autoloader::register();
+\Tutoriel\autoloader::register();
 
 
 
-$form = new BootstrapForm($_POST);
+$form = new \Tutoriel\BootstrapForm($_POST);
 
 
 
