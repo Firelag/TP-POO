@@ -1,6 +1,6 @@
 <?php
-require '../app/Autoloader.php';
-app\autoloader::register();
+require '../App/autoloader.php';
+App\autoloader::register();
 
 if(isset($_GET['p'])){
     $p = $_GET['p'];
@@ -9,14 +9,13 @@ if(isset($_GET['p'])){
 }
 
 
-//Initilisation des objets
-$db = new App\database('blog');
+
 
 ob_start();
 
 if($p === 'home'){
     require '../pages/home.php';
-} elseif($p == 'single'){
+} elseif($p == 'article'){
     require '../pages/single.php';
 }
 
