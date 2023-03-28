@@ -4,7 +4,7 @@ namespace App\Table;
 
 use App\App;
 
-class Article {
+class Article extends Table{
 
 public static function getLast(){
    return App::getDb()->query("SELECT articles.id, articles.titre, articles.contenu, categories.titre as categorie
@@ -12,13 +12,6 @@ public static function getLast(){
 }
 
 
-    public function __get($key){
-
-        $method = 'get'. ucfirst($key);
-        $this->$key = $this->$method();
-        return $this->$key;
-        
-    }
 
     public function getURL(){
         return 'index.php?p=article&id='. $this->id;    
