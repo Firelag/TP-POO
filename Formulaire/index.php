@@ -1,3 +1,9 @@
+<?php
+use \Tutoriel\BootstrapForm;
+
+use \Tutoriel\Autoloader;
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>

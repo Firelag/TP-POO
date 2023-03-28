@@ -1,5 +1,5 @@
 <?php
-namespace Tutoriel;
+namespace App;
 class autoloader{
 
     static function register(){
@@ -13,7 +13,7 @@ static function autoload($class){
 
         $class = str_replace(__NAMESPACE__.'\\','',$class);
         $class = str_replace('\\','/',$class);
-        require 'class/'. $class.'.php';
+        require __DIR__.'/'. $class.'.php';
     }
     }
    
