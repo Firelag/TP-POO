@@ -5,20 +5,31 @@ namespace App\Table;
 use App\App;
 
 class Table {
-    protected static $table;
+    
+    
+    public static function find($id){
 
-    private static function getTable(){
-        if(self::$table === null){
-            self::$table = __CLASS__;
-            die(self::$table);
-        }
-        return self::$table;
+        
+        return static::query("SELECT *
+        FROM ".static::$table. "WHERE = ?",[$id], true);
+
     }
+
+    public static function query($statement, $attributes = null, $one = false){
+        if($attributes){
+            return App::getDb()->prepare($statement,$attributes,get_called_class(), $one);
+        }else{
+            return App::getDb()->query($statement,get_called_class(), $one);
+        }
+        
+    }
+
+
     public static function all(){
         
 
         return App::getDb()->query("SELECT *
-        FROM ".self::getTable(). "", __CLASS__);
+        FROM ".static::$table. "", get_called_class());
     }
 
 

@@ -10,7 +10,7 @@
     <link rel="icon" href="../../favicon.ico">
     
 
-    <title>Starter Template for Bootstrap</title>
+    <title><?= App\App::getTitle(); ?></title>
 
     <!-- Bootstrap core CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
