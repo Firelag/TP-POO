@@ -5,13 +5,17 @@ namespace App\Table;
 use App\App;
 
 class Table {
-    
+
+    protected static $table;
     
     public static function find($id){
 
         
-        return static::query("SELECT *
-        FROM ".static::$table. "WHERE = ?",[$id], true);
+        return App::getDb()->prepare("
+            SELECT * 
+            FROM " . static::$table . " 
+            WHERE id = ?" 
+            , [$id], get_called_class(), true);
 
     }
 

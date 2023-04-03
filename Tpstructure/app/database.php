@@ -40,17 +40,17 @@ class database{
         
     }  
     
-    public function prepare($statement, $attributes,  $class_name, $one = false){
+   public function prepare($statement, $attributes, $class_name, $one = false){
         $req = $this->getPDO()->prepare($statement);
         $req->execute($attributes);
-        $req->setFetchMode(PDO::FETCH_CLASS, $class_name);
+        $datas = $req->setFetchMode(PDO::FETCH_CLASS, $class_name);
         if($one){
             $datas = $req->fetch();
-        }else{
-            $datas = $req->fetchAll();
+        } else {
+        $datas = $req->fetchAll();
         }
-        
         return $datas;
+
     }
 }
 
